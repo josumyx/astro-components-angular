@@ -1,0 +1,15 @@
+<main class="main-destacados">
+  <section id="featured-components" class="fade-in">
+    <h2 class="section-title">Hardware de Élite</h2>
+    
+    <div class="component-grid">
+      <div class="component-item" *ngFor="let producto of productosDestacados">
+        <div class="img-wrapper">
+          <img [src]="producto.imagen" [alt]="producto.nombre">
+        </div>
+        <span class="product-name">{{ producto.nombre }}</span>
+        <div class="status-tag">{{ producto.tag }}</div>
+      </div>
+    </div>
+  </section>
+</main>

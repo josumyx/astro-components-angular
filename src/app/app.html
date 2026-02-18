@@ -1,0 +1,55 @@
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="img/ac4.png" alt="Astro Logo">
+      <span>Astro Components</span>
+    </div>
+    
+    <div class="nav-section">
+      <div class="menu-wrapper">
+        <button class="descubre-btn" (click)="toggleMenu()">
+          Descubre más 
+          <span class="arrow" [style.transform]="menuAbierto ? 'rotate(180deg)' : 'rotate(0deg)'">▼</span>
+        </button>
+        
+        <nav class="nav-menu" [class.show]="menuAbierto">
+          <ul class="nav-list">
+            <li><a routerLink="/" (click)="menuAbierto = false">Inicio</a></li>
+            <li><a routerLink="/destacados" (click)="menuAbierto = false">Destacados</a></li>
+            <li><a routerLink="/productos" (click)="menuAbierto = false">Productos</a></li>
+            <li><a routerLink="/clientes" (click)="menuAbierto = false">Clientes</a></li>
+            <li><a routerLink="/servicios" (click)="menuAbierto = false">Servicios</a></li>
+            <li><a routerLink="/nosotros" (click)="menuAbierto = false">Nosotros</a></li>
+            <li><a routerLink="/contacto" (click)="menuAbierto = false">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page-content">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <span class="footer-logo">&copy; Astro Components</span> | 
+      <span class="author">KEVINKLK</span>
+    </div>
+
+    <div class="footer-links">
+      <a routerLink="/">Inicio</a> |
+      <a routerLink="/productos">Productos</a> |
+      <a routerLink="/nosotros">Sobre Nosotros</a> |
+      <a routerLink="/contacto">Contacto</a>
+    </div>
+
+    <div class="footer-social">
+      <span>Síguenos en:</span>
+      <a href="https://x.com/YANPOLGG" target="_blank" class="social-link">Twitter</a>
+      <a href="https://www.facebook.com/" target="_blank" class="social-link">Facebook</a>
+    </div>
+  </div>
+</footer>

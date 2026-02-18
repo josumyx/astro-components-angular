@@ -1,0 +1,259 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f6fd; /* Lila claro de fondo */
+    color: #3a225d;      /* Morado oscuro para texto */
+    overflow-x: hidden;
+}
+
+/* =========================================
+   HEADER (Barra de Navegación)
+   ========================================= */
+header {
+    background: #420b6e;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Separa Logo de la derecha */
+    align-items: center;
+    height: 80px;
+    box-shadow: 0 4px 15px rgba(58, 34, 93, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #a259f7; /* Tu color morado */
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre el botón y el icono de usuario */
+}
+
+/* MENÚ DESPLEGABLE */
+.menu-container {
+    position: relative;
+}
+
+.descubre-btn {
+    background: #a259f7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.descubre-btn:hover {
+    background: #3a225d;
+    box-shadow: 0 4px 12px rgba(162, 89, 247, 0.3);
+}
+
+.nav-hidden {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.nav-hidden.show {
+    display: block;
+}
+
+.nav-hidden ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-hidden li a {
+    display: block;
+    padding: 12px 20px;
+    color: #3a225d;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.nav-hidden li a:hover {
+    background: #f8f6fd;
+    color: #a259f7;
+}
+
+.user-account-btn {
+    font-size: 1.8rem;
+    color: #a259f7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.user-account-btn:hover {
+    color: #3a225d;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   HERO / BIENVENIDA
+   ========================================= */
+.home-centered {
+    background: linear-gradient(135deg, #3a225d 0%, #24143d 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 0 0 50px 50px; /* Bordes redondeados abajo */
+}
+
+.highlight h1 {
+    color: #a259f7;
+    font-size: 3.5rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(162, 89, 247, 0.4);
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 40px;
+    background: #a259f7;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background: white;
+    color: #a259f7;
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   PRODUCTOS
+   ========================================= */
+#productos {
+    padding: 60px 5%;
+}
+
+.producto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Estilos para las tarjetas de productos (inyectadas por main.js) */
+.producto-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.producto-card:hover {
+    border-color: #a259f7;
+    transform: translateY(-10px);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background: #3a225d;
+    color: white;
+    padding: 50px 5%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-content a {
+    color: #d1bce3;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.footer-content a:hover {
+    color: white;
+}
+
+/* ANIMACIONES */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.nav-hidden {
+    display: none;
+    // ... tus otros estilos ...
+    
+    &.show {
+        display: block; // Se muestra cuando la clase está activa
+    }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-header {
+  height: 80px; /* Asegúrate de que esta altura sea fija */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+  // ... resto de tu código
+}
+
+.page-content {
+  margin-top: 80px; /* Debe ser IGUAL al height del header */
+  display: block;   /* Asegura que se comporte como bloque */
+}
+
+#home, .hero-section {
+  margin-top: 0 !important;
+  padding-top: 50px; /* Usa padding en lugar de margin para dar espacio interno */
+}

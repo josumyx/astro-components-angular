@@ -1,0 +1,72 @@
+.page-padding {
+    padding: 60px 5%;
+    background: #fdfbff;
+}
+
+.main-title {
+    text-align: center;
+    color: #3a225d;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.servicios-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(162, 89, 247, 0.08);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    .icon-container {
+        height: 100px;
+        margin-bottom: 20px;
+        img {
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    h3 { color: #3a225d; margin-bottom: 10px; }
+    p { color: #666; font-size: 0.95rem; }
+}
+
+/* Estilos de la Tabla */
+.comparasion-tabla {
+    margin-top: 30px;
+    overflow-x: auto;
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+        padding: 18px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    th {
+        background: #3a225d;
+        color: white;
+        font-weight: 600;
+    }
+
+    .check { color: #2ecc71; font-weight: bold; font-size: 1.2rem; }
+    .cross { color: #e74c3c; font-weight: bold; font-size: 1.2rem; }
+}

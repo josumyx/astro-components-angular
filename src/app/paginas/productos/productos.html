@@ -1,0 +1,19 @@
+<main class="productos-page">
+  <section id="productos" class="fade-in">
+    <h2 class="title">Productos Nuevos</h2>
+    
+    <div class="producto-grid">
+      <div class="producto-card" *ngFor="let item of catalogo">
+        <div class="badge">{{ item.categoria }}</div>
+        <div class="img-container">
+          <img [src]="item.img" [alt]="item.nombre">
+        </div>
+        <div class="info">
+          <h3>{{ item.nombre }}</h3>
+          <p>{{ item.desc }}</p>
+          <a routerLink="/contacto" class="product-link">Comprar ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

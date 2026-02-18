@@ -1,0 +1,57 @@
+.acerca-container {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.hero-acerca {
+  margin-bottom: 60px;
+  h1 {
+    font-size: 3rem;
+    color: #3a225d;
+    margin-bottom: 20px;
+    .highlight { color: #a259f7; }
+  }
+  .subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.info-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid #f0f0f0;
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: #a259f7;
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: #3a225d;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #777;
+    line-height: 1.5;
+  }
+}

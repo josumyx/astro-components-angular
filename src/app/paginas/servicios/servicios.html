@@ -1,0 +1,48 @@
+<section id="servicios" class="fade-in page-padding">
+    <h2 class="main-title">Nuestros Servicios</h2>
+    
+    <div class="servicios-grid">
+        <div class="servicios-card" *ngFor="let servicio of misServicios">
+            <div class="icon-container">
+                <img [src]="servicio.img" [alt]="servicio.titulo">
+            </div>
+            <h3>{{ servicio.titulo }}</h3>
+            <p>{{ servicio.desc }}</p>
+        </div>
+    </div>
+
+    <h3 class="sub-title">Comparativa de Servicios</h3>
+    <div class="comparasion-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Astro Components</th>
+                    <th>Otras Tiendas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ensamble Gratis</td>
+                    <td class="check">✔</td>
+                    <td class="cross">✘</td>
+                </tr>
+                <tr>
+                    <td>Soporte Técnico</td>
+                    <td class="check">✔</td>
+                    <td>Limitado</td>
+                </tr>
+                <tr>
+                    <td>Entregas Rápidas</td>
+                    <td class="check">✔</td>
+                    <td class="check">✔</td>
+                </tr>
+                <tr>
+                    <td>Garantía Extendida</td>
+                    <td class="check">✔</td>
+                    <td class="cross">✘</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
