@@ -1,0 +1,75 @@
+<div class="auth-page">
+  <div class="stars-background">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+
+  <div class="flip-container" [class.flipped]="!isLogin">
+    <div class="flipper">
+      
+      <div class="front auth-card">
+        <div class="form-side">
+          <h2 class="auth-title">Iniciar Sesión</h2>
+          <p class="auth-subtitle">Ingresa tus datos para continuar</p>
+          
+          <form (ngSubmit)="onSubmit()">
+            <div class="input-box">
+              <label>Correo Electrónico</label>
+              <div class="input-wrapper">
+                <span class="icon">✉</span>
+                <input type="email" placeholder="tu@correo.com" name="email" [(ngModel)]="usuario.email">
+              </div>
+            </div>
+
+            <div class="input-box">
+              <label>Contraseña</label>
+              <div class="input-wrapper">
+                <span class="icon">🔒</span>
+                <input type="password" placeholder="••••••••" name="password" [(ngModel)]="usuario.password">
+              </div>
+            </div>
+
+            <div class="form-footer">
+              <label><input type="checkbox"> Recordarme</label>
+              <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="btn-primary">Ingresar ➔</button>
+          </form>
+        </div>
+
+        <div class="overlay-side">
+          <div class="logo-area">
+            <span class="logo-white">ASTRO</span><span class="logo-purple">COMPONENTS</span>
+          </div>
+          <h3>¡Hola!</h3>
+          <p>Compra los mejores componentes para tu PC de forma fácil y segura.</p>
+          <button class="btn-outline" (click)="togglePanel()">Crear Cuenta</button>
+        </div>
+      </div>
+
+      <div class="back auth-card">
+        <div class="overlay-side">
+          <div class="logo-area">
+            <span class="logo-white">ASTRO</span><span class="logo-purple">COMPONENTS</span>
+          </div>
+          <h3>¡Bienvenido de nuevo!</h3>
+          <p>Para mantenerte conectado, inicia sesión con tu información personal.</p>
+          <button class="btn-outline" (click)="togglePanel()">Iniciar Sesión</button>
+        </div>
+
+        <div class="form-side">
+          <h2 class="auth-title">Crear Cuenta</h2>
+          <p class="auth-subtitle">Regístrate para obtener beneficios exclusivos</p>
+          <form (ngSubmit)="onSubmit()">
+            <button type="submit" class="btn-primary">Registrarme ➔</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

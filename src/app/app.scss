@@ -1,259 +1,540 @@
 /* =========================================
-   CONFIGURACIÓN GENERAL
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+:root {
+  --neon-purple: #a259f7;
+  --dark-purple: #3a225d;
+  --bg-page: #f4f7fe;
+  --banner-gradient: linear-gradient(135deg, #3a225d 0%, #24143d 100%);
+}
+
+body.dark-theme {
+  --bg-page: #0b0e14;
+  --banner-gradient: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f8f6fd; /* Lila claro de fondo */
-    color: #3a225d;      /* Morado oscuro para texto */
-    overflow-x: hidden;
+  background-color: var(--bg-page);
+  transition: all 0.4s ease;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden; /* Evita scroll lateral por el óvalo */
 }
 
 /* =========================================
-   HEADER (Barra de Navegación)
+   2. HEADER (FIJO Y FUNCIONAL)
    ========================================= */
-header {
-    background: #420b6e;
-    padding: 0 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.main-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 80px;
+  background: #3a225d;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* MENÚ DESPLEGABLE (Para que no mueva nada al abrirse) */
+.menu-wrapper {
+  position: relative;
+}
+
+.dropdown-nav {
+  position: absolute;
+  top: 65px; /* Ajusta para que quede bajo el botón morado */
+  right: 0;
+  background: white;
+  min-width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: none; 
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 9999; /* Para que pase por encima de las tarjetas */
+
+  &.show {
     display: flex;
-    justify-content: space-between; /* Separa Logo de la derecha */
-    align-items: center;
-    height: 80px;
-    box-shadow: 0 4px 15px rgba(58, 34, 93, 0.1);
-}
+  }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 800;
-    font-size: 1.3rem;
-    color: #a259f7; /* Tu color morado */
-}
 
-.logo-img {
-    height: 50px;
-    width: auto;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espacio entre el botón y el icono de usuario */
-}
-
-/* MENÚ DESPLEGABLE */
-.menu-container {
-    position: relative;
-}
-
-.descubre-btn {
-    background: #a259f7;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-}
-
-.descubre-btn:hover {
-    background: #3a225d;
-    box-shadow: 0 4px 12px rgba(162, 89, 247, 0.3);
-}
-
-.nav-hidden {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background: white;
-    min-width: 200px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #eee;
-}
-
-.nav-hidden.show {
-    display: block;
-}
-
-.nav-hidden ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-hidden li a {
-    display: block;
+  a {
     padding: 12px 20px;
     color: #3a225d;
     text-decoration: none;
-    transition: 0.2s;
+    font-weight: 500;
+    &:hover { background: #f4f0fa; color: var(--neon-purple); }
+  }
+}
+.actions-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative; /* Para que el menú se base en este contenedor */
 }
 
-.nav-hidden li a:hover {
-    background: #f8f6fd;
-    color: #a259f7;
+/* BOTÓN DE USUARIO Y MENÚ */
+.action-item, .descubre-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+  &:hover { color: var(--neon-purple); }
 }
 
-.user-account-btn {
-    font-size: 1.8rem;
-    color: #a259f7;
-    text-decoration: none;
-    transition: 0.3s;
+.dropdown-nav {
+  /* ... tus otros estilos ... */
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.user-account-btn:hover {
-    color: #3a225d;
-    transform: scale(1.1);
+body.dark-theme .dropdown-nav {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(162, 89, 247, 0.3);
+  a { 
+    color: #f8fafc; 
+    &:hover { background: rgba(162, 89, 247, 0.2); }
+  }
+}
+.header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  img { height: 45px; width: auto; }
+  .logo-text { color: white; font-weight: 800; font-size: 1.1rem; }
 }
 
 /* =========================================
-   HERO / BIENVENIDA
+   3. SECCIÓN HERO (ÓVALO TOTAL)
    ========================================= */
 .home-centered {
-    background: linear-gradient(135deg, #3a225d 0%, #24143d 100%);
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-    border-radius: 0 0 50px 50px; /* Bordes redondeados abajo */
+  position: relative;
+  background: var(--banner-gradient);
+  /* Padding compensando el header fixed */
+  padding: 140px 20px 100px 20px; 
+  text-align: center;
+  color: white;
+  z-index: 1;
+
+  /* FORZAR ANCHO DE PANTALLA COMPLETA */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  left: 0;
+  right: 0;
+  
+  /* CURVA PROFESIONAL */
+  border-radius: 0 0 50% 50% / 0 0 80px 80px; 
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
 }
 
 .highlight h1 {
-    color: #a259f7;
-    font-size: 3.5rem;
-    margin: 10px 0;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(162, 89, 247, 0.4);
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  .brand-name { color: var(--neon-purple); }
 }
 
-.cta-btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 15px 40px;
-    background: #a259f7;
+/* BUSCADOR DENTRO DEL HERO */
+.hero-search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+  z-index: 20;
+}
+
+.hero-search-bar {
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: #333;
+    background: transparent;
+    &::placeholder { color: #999; }
+  }
+
+  .hero-search-btn {
+    background: var(--neon-purple);
     color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     transition: 0.3s;
-}
-
-.cta-btn:hover {
-    background: white;
-    color: #a259f7;
-    transform: translateY(-5px);
+    &:hover { background: var(--dark-purple); transform: scale(1.05); }
+  }
 }
 
 /* =========================================
-   PRODUCTOS
+   4. CONTENIDO Y PRODUCTOS
    ========================================= */
-#productos {
-    padding: 60px 5%;
+.page-content {
+  width: 100%;
+  margin-top: 80px; /* Espacio para el header fijo */
+  min-height: calc(100vh - 80px);
+  padding: 0; /* Permitimos que el Hero ocupe todo el ancho */
 }
-
 .producto-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 40px 5%; /* AQUÍ es donde debe estar el padding lateral */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* Estilos para las tarjetas de productos (inyectadas por main.js) */
 .producto-card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    border: 1px solid transparent;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(162, 89, 247, 0.1);
+  transition: 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(162, 89, 247, 0.15);
+  }
 }
 
-.producto-card:hover {
-    border-color: #a259f7;
-    transform: translateY(-10px);
+.img-container {
+  height: 250px;
+  background: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img { max-width: 100%; max-height: 100%; object-fit: contain; }
 }
 
 /* =========================================
-   FOOTER
+   5. COMPONENTE LOGIN Y EXTRAS
    ========================================= */
-footer {
-    background: #3a225d;
-    color: white;
-    padding: 50px 5%;
-    margin-top: 60px;
+.auth-page {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.descubre-btn {
+  background: var(--neon-purple);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(162, 89, 247, 0.3);
+  transition: 0.3s;
+  &:hover { background: #8a3ffc; transform: scale(1.05); }
+}
+
+.floating-actions {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fab-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  cursor: pointer;
+  border: none;
+  background: white; /* Color base */
+}
+
+.theme-fab { background: var(--neon-purple); color: white; }
+
+.main-footer {
+  background: var(--dark-purple);
+  color: white;
+  padding: 50px 5%;
+  text-align: center;
+}
+
+body.dark-theme {
+  .main-header, .main-footer { background: #151921; }
+  .highlight h1 { color: var(--neon-purple); text-shadow: 0 0 15px rgba(162, 89, 247, 0.6); }
+  .producto-card { background: #1e1e1e; border-color: #333; }
+}
+
+/* =========================================
+   8. FOOTER PROFESIONAL (CORREGIDO)
+   ========================================= */
+.main-footer {
+  background: #3a225d;
+  color: white;
+  padding: 60px 5% 40px 5%;
+  border-top: 4px solid var(--neon-purple);
+  width: 100%;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+  display: flex;         /* Pone las secciones en fila */
+  justify-content: space-between; /* Separa las secciones a los extremos */
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 30px;
 }
 
-.footer-content a {
+.footer-section {
+  flex: 1;               /* Hace que cada columna use el mismo espacio */
+  text-align: center;    /* Centra el texto de cada columna */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-links, .footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  a {
     color: #d1bce3;
     text-decoration: none;
-    margin: 0 10px;
+    &:hover { color: white; text-decoration: underline; }
+  }
+}
+.footer-logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--neon-purple);
+}
+
+/* Ajuste de la imagen dentro de la tarjeta */
+.card-img-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 15px;
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; // Evita que la imagen se estire feo
     transition: 0.3s;
+  }
 }
 
-.footer-content a:hover {
-    color: white;
+.card-info {
+  padding: 20px;
+  text-align: center;
+  
+  h3 { color: var(--dark-purple); font-size: 1.2rem; margin-bottom: 10px; }
+  p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+  
+  .price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--neon-purple);
+    margin-bottom: 15px;
+  }
 }
 
-/* ANIMACIONES */
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
+/* Botón de compra estilizado */
+.buy-btn {
+  background: var(--neon-purple);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  
+  &:hover {
+    background: var(--dark-purple);
+    box-shadow: 0 5px 15px rgba(162, 89, 247, 0.4);
+  }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* =========================================
+   ANIMACIÓN DE ENTRADA (FADE IN UP)
+   ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.nav-hidden {
-    display: none;
-    // ... tus otros estilos ...
-    
-    &.show {
-        display: block; // Se muestra cuando la clase está activa
+
+.producto-card {
+  /* Aplicamos la animación a cada tarjeta */
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0; /* Empieza invisible para la animación */
+}
+
+/* Retraso escalonado para que no salgan todas al mismo tiempo */
+.producto-card:nth-child(1) { animation-delay: 0.1s; }
+.producto-card:nth-child(2) { animation-delay: 0.2s; }
+.producto-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* =========================================
+   AJUSTES FINALES MODO OSCURO (PROFESIONAL)
+   ========================================= */
+body.dark-theme {
+  background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+  
+  .home-centered {
+    background: linear-gradient(135deg, #1e1b4b 0%, #020617 100%);
+    &::after {
+      background: #020617; /* Sincroniza la curva con el fondo */
     }
+  }
+
+  
+  .section-title { color: #f8fafc !important; }
+
+  .producto-card {
+    background: #1e293b; /* Azul grisáceo oscuro */
+    border-color: rgba(162, 89, 247, 0.2);
+    
+    .card-info {
+      h3 { color: #f8fafc; }
+      p { color: #94a3b8; }
+    }
+    
+    .card-img-container {
+      background: #0f172a; /* Fondo más oscuro para la imagen */
+    }
+  }
+
+  /* Footer en modo oscuro */
+  .main-footer {
+    background: #020617;
+    border-top-color: var(--neon-purple);
+  }
+
+  /* El buscador en modo oscuro */
+  .hero-search-bar {
+    background: #1e293b;
+    border-color: var(--neon-purple);
+    input { 
+      color: white; 
+      &::placeholder { color: #64748b; }
+    }
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.main-header {
-  height: 80px; /* Asegúrate de que esta altura sea fija */
+/* =========================================
+   EFECTO DE PARTÍCULAS ESPACIALES
+   ========================================= */
+.astro-particles {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 2000;
-  // ... resto de tu código
+  height: 100%;
+  pointer-events: none; /* Para que no bloquee los clics */
+  z-index: 5; /* Por detrás de los botones pero sobre el fondo */
+  overflow: hidden;
 }
 
-.page-content {
-  margin-top: 80px; /* Debe ser IGUAL al height del header */
-  display: block;   /* Asegura que se comporte como bloque */
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(1px);
+  box-shadow: 0 0 10px var(--neon-purple);
+  animation: floatParticle 10s infinite linear;
 }
 
-#home, .hero-section {
-  margin-top: 0 !important;
-  padding-top: 50px; /* Usa padding en lugar de margin para dar espacio interno */
+/* Configuramos diferentes tamaños y posiciones iniciales */
+.particle:nth-child(1) { width: 3px; height: 3px; left: 10%; animation-duration: 8s; }
+.particle:nth-child(2) { width: 2px; height: 2px; left: 30%; animation-duration: 12s; animation-delay: 2s; }
+.particle:nth-child(3) { width: 4px; height: 4px; left: 50%; animation-duration: 15s; box-shadow: 0 0 15px #fff; }
+.particle:nth-child(4) { width: 2px; height: 2px; left: 70%; animation-duration: 10s; animation-delay: 5s; }
+.particle:nth-child(5) { width: 3px; height: 3px; left: 90%; animation-duration: 18s; }
+
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(110vh) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
 }
+

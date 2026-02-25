@@ -8,7 +8,7 @@ import { ClientesComponent } from './paginas/clientes/clientes';
 import { DestacadosComponent } from './paginas/destacados/destacados';
 import { NosotrosComponent } from './paginas/nosotros/nosotros';
 import { ServiciosComponent } from './paginas/servicios/servicios';
-
+import { LoginComponent } from './paginas/login/login';
 export const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'productos', component: ProductosComponent },
@@ -17,5 +17,6 @@ export const routes: Routes = [
   { path: 'destacados', component: DestacadosComponent },
   { path: 'nosotros', component: NosotrosComponent },
   { path: 'servicios', component: ServiciosComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' } // Si hay error, vuelve al inicio
 ];

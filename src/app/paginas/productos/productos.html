@@ -1,19 +1,27 @@
 <main class="productos-page">
-  <section id="productos" class="fade-in">
-    <h2 class="title">Productos Nuevos</h2>
+  <div class="container">
+    <h2 class="section-title">Hardware Destacado</h2>
     
     <div class="producto-grid">
-      <div class="producto-card" *ngFor="let item of catalogo">
-        <div class="badge">{{ item.categoria }}</div>
+      <div class="producto-card" *ngFor="let producto of productosFiltrados">
+        <div class="badge">{{ producto.categoria }}</div>
+        
         <div class="img-container">
-          <img [src]="item.img" [alt]="item.nombre">
+          <img [src]="producto.imagen" [alt]="producto.nombre">
         </div>
-        <div class="info">
-          <h3>{{ item.nombre }}</h3>
-          <p>{{ item.desc }}</p>
-          <a routerLink="/contacto" class="product-link">Comprar ahora</a>
+
+        <div class="info-container">
+          <h3>{{ producto.nombre }}</h3>
+          <div class="price-tag">${{ producto.precio }}</div>
+          <button class="buy-btn" (click)="agregarAlCarrito()">
+            <span class="icon">🛒</span> Añadir al carrito
+          </button>
         </div>
       </div>
+
+      <div *ngIf="productosFiltrados.length === 0" class="no-results-box">
+        <p>No encontramos lo que buscas. ¡Intenta con otra palabra! 🤖</p>
+      </div>
     </div>
-  </section>
+  </div>
 </main>

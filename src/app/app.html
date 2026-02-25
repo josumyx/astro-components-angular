@@ -1,55 +1,74 @@
 <header class="main-header">
   <div class="header-container">
-    <div class="logo">
+    <div class="logo-box" routerLink="/">
       <img src="img/ac4.png" alt="Astro Logo">
-      <span>Astro Components</span>
+      <span class="logo-text">ASTRO COMPONENTS</span>
     </div>
-    
-    <div class="nav-section">
+
+    <div class="actions-group">
+      <a class="action-item" routerLink="/login">
+        👤 <span class="user-text">Mi Cuenta</span>
+      </a>
+
       <div class="menu-wrapper">
         <button class="descubre-btn" (click)="toggleMenu()">
-          Descubre más 
-          <span class="arrow" [style.transform]="menuAbierto ? 'rotate(180deg)' : 'rotate(0deg)'">▼</span>
+          MENÚ {{ menuAbierto ? '▲' : '▼' }}
         </button>
         
-        <nav class="nav-menu" [class.show]="menuAbierto">
-          <ul class="nav-list">
-            <li><a routerLink="/" (click)="menuAbierto = false">Inicio</a></li>
-            <li><a routerLink="/destacados" (click)="menuAbierto = false">Destacados</a></li>
-            <li><a routerLink="/productos" (click)="menuAbierto = false">Productos</a></li>
-            <li><a routerLink="/clientes" (click)="menuAbierto = false">Clientes</a></li>
-            <li><a routerLink="/servicios" (click)="menuAbierto = false">Servicios</a></li>
-            <li><a routerLink="/nosotros" (click)="menuAbierto = false">Nosotros</a></li>
-            <li><a routerLink="/contacto" (click)="menuAbierto = false">Contacto</a></li>
-          </ul>
+        <nav class="dropdown-nav" [class.show]="menuAbierto">
+          <a routerLink="/" (click)="menuAbierto = false">Inicio</a>
+          <a routerLink="/productos" (click)="menuAbierto = false">Productos</a>
+          <a routerLink="/nosotros" (click)="menuAbierto = false">Sobre Nosotros</a>
+          <a routerLink="/contacto" (click)="menuAbierto = false">Contacto</a>
         </nav>
       </div>
     </div>
   </div>
 </header>
 
+<div class="astro-particles" *ngIf="isDarkMode">
+  <div class="particle" *ngFor="let p of [1,2,3,4,5,6,7,8,9,10]"></div>
+</div>
+
 <main class="page-content">
   <router-outlet></router-outlet>
 </main>
 
+<div class="floating-actions">
+  <button class="fab-btn theme-fab" (click)="toggleTheme()">
+    {{ isDarkMode ? '☀️' : '🌙' }}
+  </button>
+
+  <button class="fab-btn cart-fab" routerLink="/carrito">
+    🛒<span class="fab-badge" *ngIf="carritoCount > 0">{{ carritoCount }}</span>
+  </button>
+</div>
+
+
 <footer class="main-footer">
   <div class="footer-content">
     <div class="footer-section">
-      <span class="footer-logo">&copy; Astro Components</span> | 
-      <span class="author">KEVINKLK</span>
+      <span class="footer-logo">ASTRO COMPONENTS</span>
+      <p>&copy; 2026 Astro Components | KEVINKLK</p>
     </div>
 
-    <div class="footer-links">
-      <a routerLink="/">Inicio</a> |
-      <a routerLink="/productos">Productos</a> |
-      <a routerLink="/nosotros">Sobre Nosotros</a> |
-      <a routerLink="/contacto">Contacto</a>
+    <div class="footer-section">
+      <h3>Navegación</h3>
+      <div class="footer-links">
+        <a routerLink="/">Inicio</a>
+        <a routerLink="/productos">Productos</a>
+        <a routerLink="/nosotros">Sobre Nosotros</a>
+        <a routerLink="/contacto">Contacto</a>
+      </div>
     </div>
 
-    <div class="footer-social">
-      <span>Síguenos en:</span>
-      <a href="https://x.com/YANPOLGG" target="_blank" class="social-link">Twitter</a>
-      <a href="https://www.facebook.com/" target="_blank" class="social-link">Facebook</a>
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <div class="footer-social">
+        <a href="https://x.com/YANPOLGG" target="_blank">Twitter</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+      </div>
     </div>
   </div>
 </footer>

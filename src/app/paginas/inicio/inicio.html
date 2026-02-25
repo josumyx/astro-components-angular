@@ -1,26 +1,35 @@
-<section class="hero-section">
-    <div class="hero-content">
-        <h1>Bienvenido a <span class="brand-name">Astro Components</span></h1>
-        <h2>Tu PC Web Potente</h2>
-        <p>Compra los mejores componentes de forma fácil y segura.</p>
-        <button class="cta-btn" routerLink="/productos">Explorar todo el catálogo</button>
+<section class="home-centered">
+  <div class="highlight">
+    <h1 class="bien">Bienvenido a ⫻<span class="brand-name">⫻ Astro Components</span></h1>
+    <p class="subtitle">Tu PC Web Potente</p>
+    <p class="quote">"Consulta todo lo que tenemos para ti"</p>
+  </div>
+
+  <div class="hero-search-container">
+    <div class="hero-search-bar">
+      <input type="text" placeholder="¿Qué hardware buscas hoy?" (input)="buscar($event)">
+      <button class="hero-search-btn">🔍 BUSCAR</button>
     </div>
+  </div>
 </section>
 
-<section class="novedades-container">
-    <h2 class="section-title">Novedades de la Semana</h2>
-    
+<main class="page-content">
+  <h2 class="section-title" style="text-align: center; margin-top: 50px; color: #3a225d;">
+    Novedades de la Semana
+  </h2>
+
+  <section class="novedades-container">
     <div class="producto-grid">
-        <div class="producto-card" *ngFor="let prod of productosNuevos">
-            <div class="card-img-container">
-                <img [src]="prod.img" [alt]="prod.nombre">
-            </div>
-            <div class="card-info">
-                <h3>{{ prod.nombre }}</h3>
-                <p>{{ prod.desc }}</p>
-                <span class="price">{{ prod.precio }}</span>
-                <button class="buy-btn">Consultar</button>
-            </div>
+      <div class="producto-card" *ngFor="let prod of productosFiltrados">
+        <div class="card-img-container">
+          <img [src]="prod.imagen" [alt]="prod.nombre">
         </div>
+        <div class="card-info">
+          <h3>{{ prod.nombre }}</h3>
+          <p>{{ prod.categoria }}</p> <span class="price">${{ prod.precio }}</span>
+          <button class="buy-btn" (click)="agregarAlCarrito()">Consultar</button>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+</main>

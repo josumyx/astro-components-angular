@@ -1,35 +1,44 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Esto es vital para *ngFor y *ngIf
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './productos.html',
   styleUrl: './productos.scss'
 })
 export class ProductosComponent {
-  // Lista de catálogo completa
-  catalogo = [
+  // 1. La variable que te daba el error TS2339
+  searchTerm: string = '';
+
+  // 2. La lista de productos que el *ngFor necesita recorrer
+  productos = [
     { 
-      nombre: 'UltraCore X9 CPU', 
-      img: 'img/intel.jpg', 
-      desc: 'Rendimiento inigualable para juegos y productividad.',
-      categoria: 'Procesadores'
+      nombre: 'NVIDIA RTX 5090', 
+      precio: 1999, 
+      imagen: 'img/nvme.jpg', 
+      categoria: 'Tarjetas Gráficas' 
     },
     { 
-      nombre: 'ASUS ROG ASTRAL', 
-      img: 'img/rtx5090.png', 
-      desc: 'Tarjeta Gráfica de última generación con Ray Tracing.',
-      categoria: 'Gráficas'
+      nombre: 'Intel Core Ultra 9', 
+      precio: 599, 
+      imagen: 'img/intel.jpg', 
+      categoria: 'Procesadores' 
     },
     { 
-      nombre: 'Predator SSD 2TB', 
-      img: 'img/nvme.jpg', 
-      desc: 'Almacenamiento ultrarrápido NVMe Gen5.',
-      categoria: 'Almacenamiento'
+      nombre: 'SSD Predator 2TB', 
+      precio: 150, 
+      imagen: 'img/producto1.png', 
+      categoria: 'Almacenamiento' 
     }
-    // Puedes repetir estos objetos o agregar más y el diseño se ajustará solo
   ];
+
+  // 3. La lista filtrada que se muestra en pantalla
+  productosFiltrados = [...this.productos];
+
+  // 4. Función para que el botón de añadir no dé error
+  agregarAlCarrito() {
+    console.log('Producto añadido');
+  }
 }

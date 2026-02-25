@@ -1,14 +1,33 @@
 <main class="main2">
 
-        <section id="contact" class="fade-in">
-            <h2 style="text-align: center;">Contáctanos</h2>
-            <form id="contact-form" autocomplete="off">
-                <input type="text" name="name" placeholder="Tu nombre" required>
-                <input type="email" name="email" placeholder="Tu correo" required>
-                <textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea>
-                <button type="submit">Enviarnos tu mensaje :)</button>
-            </form>
-            <div id="form-message"></div>
-        </section>
-        
+<section class="contacto-container">
+  <div class="contacto-card">
+    <h2>Contacto</h2>
+    
+    <form (ngSubmit)="enviarMensaje()">
+      
+      <div class="input-group">
+        <label>Nombre</label>
+        <input type="text" name="nombre" [(ngModel)]="datosContacto.nombre" required>
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" [(ngModel)]="datosContacto.email" required>
+      </div>
+
+<div class="input-group">
+  <label>Mensaje</label>
+  <input type="text" name="mensaje" [(ngModel)]="datosContacto.mensaje" required>
+</div>
+     <button 
+  type="submit" 
+  class="send-btn" 
+  [disabled]="!datosContacto.nombre || !datosContacto.email || !datosContacto.mensaje">
+  Enviar Mensaje
+</button>
+      
+    </form>
+  </div>
+</section>
     </main>
