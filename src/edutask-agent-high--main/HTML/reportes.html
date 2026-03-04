@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Reportes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../STYLES/variables.css">
+    <link rel="stylesheet" href="../STYLES/base.css">
+    <link rel="stylesheet" href="../STYLES/navbar.css">
+    <link rel="stylesheet" href="../STYLES/cards.css">
+    <link rel="stylesheet" href="../STYLES/forms.css">
+    <link rel="stylesheet" href="../STYLES/footer.css">
+</head>
+
+<body>
+    <nav class="navbar-pro">
+        <div class="nav-izq"><img src="../IMG/logo.jpeg" class="nav-logo">
+            <span class="nav-titulo">Buzón de reportes</span>
+        </div>
+
+        <div class="nav-der" id="navAdminTools">
+            <button class="btn-cerrar-nav" onclick="cerrar()">Cerrar Sesión 🚪</button>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <div class="card" id="cuadroFormulario">
+        <h2 id="saludo">Nuevo Reporte</h2>
+        <label>Asunto:</label>
+        <input type="text" id="titulo">
+
+        <label>Descripción:</label>
+        <input type="text" id="desc">
+
+        <label>Ubicación (Salón/Área):</label>
+        <select id="salon"></select>
+
+        <div
+            style="background: #f0f0ff; padding: 10px; border-radius: 5px; margin: 15px 0; font-size: 13px; color: #4834d4; border: 1px solid #dcdde1;">
+            <b>🧠 Análisis Inteligente:</b> Nuestra IA clasificará la urgencia de tu reporte automáticamente.
+        </div>
+
+        <input type="hidden" id="prioridad" value="Baja">
+        <button onclick="guardar()">Agregar Reporte</button>
+    </div>
+
+    <div class="card" style="max-width: 50vw;" id="contenedorLista">
+        <h2>Buzón de Reportes</h2>
+        <div id="lista"></div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div><span class="footer-logo"> &copy;EduTask</span> | VIC</div>
+            <div>
+                <a href="#home">Inicio</a> |
+                <a href="#products">Productos</a> |
+                <a href="https://web.metricamovil.com/">Sobre Nosotros</a> |
+                <a href="#contact">Contactanos</a>
+            </div>
+            <div>
+                <span>Siguenos en:</span>
+                <a href="https://www.instagram.com/josumtx?igsh=MWNnZnc2bmJ4aDN5Mw==" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/share/1BL1bwEq95/" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../SCRIPTS/reportes.js"></script>
+</body>
+
+</html>

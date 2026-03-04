@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso al Sistema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../STYLES/variables.css">
+    <link rel="stylesheet" href="../STYLES/base.css">
+    <link rel="stylesheet" href="../STYLES/navbar.css">
+    <link rel="stylesheet" href="../STYLES/cards.css">
+    <link rel="stylesheet" href="../STYLES/forms.css">
+    <link rel="stylesheet" href="../STYLES/footer.css">
+</head>
+
+<body>
+
+    <nav class="navbar-pro">
+        <div class="nav-izq">
+            <img src="../IMG/logo.jpeg" class="nav-logo">
+
+        </div>
+        <div class="nav-der">
+
+        </div>
+
+    </nav>
+    <br>
+    <br>
+    <br>
+    <div class="card" style="width: 80VH;">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="user" placeholder="Usuario">
+        <input type="password" id="pass" placeholder="Contraseña">
+        <button onclick="entrar()" style="background: linear-gradient(45deg, #000000, #000000);">Ingresar</button>
+    </div>
+
+    <div class="card" style="width: 80VH;">
+        <h2>Alta de Institución</h2>
+        <input type="text" id="regEscuela" placeholder="Nombre de la Escuela">
+        <input type="text" id="regcorreo" placeholder="correo">
+        <input type="text" id="regclave" placeholder="clave">
+        <button onclick="registrar()">Registrar</button>
+        <p id="msg" style="margin-top:10px; font-size:12px; font-weight:bold;"></p>
+    </div>
+
+    <script src="../SCRIPTS/auth.js"></script>
+
+    <footer>
+        <div class="footer-content">
+            <div><span class="footer-logo"> &copy;EduTask</span> | VIC</div>
+            <div>
+                <a href="#home">Inicio</a> |
+                <a href="#products">Productos</a> |
+                <a href="https://web.metricamovil.com/">Sobre Nosotros</a> |
+                <a href="#contact">Contactanos</a>
+            </div>
+            <div>
+                <span>Siguenos en:</span>
+                <a href="https://www.instagram.com/josumtx?igsh=MWNnZnc2bmJ4aDN5Mw==" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/share/1BL1bwEq95/" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

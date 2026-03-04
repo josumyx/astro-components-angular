@@ -1,33 +1,52 @@
-<main class="main2">
-
-<section class="contacto-container">
-  <div class="contacto-card">
-    <h2>Contacto</h2>
-    
-    <form (ngSubmit)="enviarMensaje()">
-      
-      <div class="input-group">
-        <label>Nombre</label>
-        <input type="text" name="nombre" [(ngModel)]="datosContacto.nombre" required>
-      </div>
-
-      <div class="input-group">
-        <label>Email</label>
-        <input type="email" name="email" [(ngModel)]="datosContacto.email" required>
-      </div>
-
-<div class="input-group">
-  <label>Mensaje</label>
-  <input type="text" name="mensaje" [(ngModel)]="datosContacto.mensaje" required>
-</div>
-     <button 
-  type="submit" 
-  class="send-btn" 
-  [disabled]="!datosContacto.nombre || !datosContacto.email || !datosContacto.mensaje">
-  Enviar Mensaje
-</button>
-      
-    </form>
+<div class="contact-page">
+  <div class="contact-header">
+    <h1>CONTACTO⫻<span>⫻ASTRO</span></h1>
+    <p>¿Tienes dudas sobre tu próximo ensamble? Nuestro equipo de expertos está listo.</p>
   </div>
-</section>
-    </main>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="info-card">
+        <span class="icon">📍</span>
+        <h3>Ubicación</h3>
+        <p>Tec de monterrey en el edficio de cilindro piso 4👍</p>
+      </div>
+      <div class="info-card">
+        <span class="icon">📧</span>
+        <h3>Email</h3>
+        <p>ayuda@astrocomponents.com</p>
+      </div>
+      <div class="info-card">
+        <span class="icon">📱</span>
+        <h3>WhatsApp</h3>
+        <p>+52 871 1721804</p>
+      </div>
+    </div>
+
+    <div class="contact-form-box">
+      <form>
+        <div class="input-group">
+          <input type="text" placeholder="Tu Nombre" required>
+        </div>
+        <div class="input-group">
+          <input type="email" placeholder="Tu Correo" required>
+        </div>
+        <div class="input-group">
+         <select name="asunto" required>
+  <option value="" disabled selected>Selecciona un asunto...</option>
+  <option value="soporte">Soporte Técnico</option>
+  <option value="ventas">Ventas / Cotizaciones</option>
+  <option value="pedido">Estado de mi Pedido</option>
+</select>
+        </div>
+        <div class="input-group">
+        <input type="text" 
+         placeholder="Escribe tu mensaje aquí..." 
+         name="mensaje" 
+         required> 
+        </div>
+        <button type="submit" class="send-btn">Enviar Mensaje ➔</button>
+      </form>
+    </div>
+  </div>
+</div>

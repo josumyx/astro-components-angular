@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #4b6584;
+    --background-color: #f1f2f6;
+    --text-color: #2f3542;
+    --navbar-bg: #000000;
+    --card-bg: #ffffff;
+    --border-color: #dcdde1;
+    --footer-bg: #000000;
+
+    --priority-alta: #f10f0f;
+    --priority-media: #eeff00;
+    --priority-baja: #26e60d;
+    --state-terminado: #0732e0;
+    --btn-danger: #ff7675;
+}

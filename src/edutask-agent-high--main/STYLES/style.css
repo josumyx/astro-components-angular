@@ -1,0 +1,7 @@
+/* Este archivo ha sido dividido en módulos en la carpeta STYLES/ */
+@import "variables.css";
+@import "base.css";
+@import "navbar.css";
+@import "cards.css";
+@import "forms.css";
+@import "footer.css";

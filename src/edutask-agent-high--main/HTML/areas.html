@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Áreas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../STYLES/variables.css">
+    <link rel="stylesheet" href="../STYLES/base.css">
+    <link rel="stylesheet" href="../STYLES/navbar.css">
+    <link rel="stylesheet" href="../STYLES/cards.css">
+    <link rel="stylesheet" href="../STYLES/forms.css">
+    <link rel="stylesheet" href="../STYLES/footer.css">
+</head>
+
+<body>
+
+    <nav class="navbar-pro">
+        <div class="nav-izq">
+            <img src="../IMG/logo.jpeg" class="nav-logo">
+            <span class="nav-titulo">Agregar áreas</span>
+        </div>
+        <div class="nav-der">
+            <button class="btn-nav" onclick="volver()">⬅ Volver a Reportes</button>
+            <button class="btn-cerrar-nav" onclick="cerrar()">Cerrar Sesión 🚪</button>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <div class="card">
+        <h2>➕ Agregar Nueva Área</h2>
+        <p style="text-align:center; color:#777; margin-bottom:15px;">Escribe el nombre del salón, laboratorio o zona.
+        </p>
+
+        <div style="display:flex; gap:10px;">
+            <input type="text" id="nuevaAreaInput" placeholder="Ej: Laboratorio de Química" style="margin-bottom:0;">
+            <button onclick="guardarArea()" style="width:auto; white-space:nowrap;">Guardar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📋 Áreas Registradas</h2>
+        <div id="listaAreasContainer">
+            <p style="text-align:center; color:#999;">Cargando áreas...</p>
+        </div>
+    </div>
+
+    <script src="../SCRIPTS/areas.js"></script>
+
+    <footer>
+        <div class="footer-content">
+            <div><span class="footer-logo"> &copy;EduTask</span> | VIC</div>
+            <div>
+                <a href="#home">Inicio</a> |
+                <a href="#products">Productos</a> |
+                <a href="https://web.metricamovil.com/">Sobre Nosotros</a> |
+                <a href="#contact">Contactanos</a>
+            </div>
+            <div>
+                <span>Siguenos en:</span>
+                <a href="https://www.instagram.com/josumtx?igsh=MWNnZnc2bmJ4aDN5Mw==" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/share/1BL1bwEq95/" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

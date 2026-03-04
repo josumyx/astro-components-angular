@@ -13,8 +13,8 @@ export class InicioComponent {
   // 1. Datos de los productos (Asegúrate de que los nombres coincidan con el HTML)
   productos = [
     { nombre: 'Intel Core Ultra 9', precio: 599, imagen: 'img/intel.jpg', categoria: 'Procesadores' },
-    { nombre: 'NVIDIA RTX 5090', precio: 1999, imagen: 'img/rtx5090.jpg', categoria: 'Gráficas' },
-    { nombre: 'SSD Predator 2TB', precio: 150, imagen: 'img/ssd.jpg', categoria: 'Almacenamiento' },
+    { nombre: 'NVIDIA RTX 5090', precio: 1999, imagen: 'img/rtx5090.png', categoria: 'Gráficas' },
+    { nombre: 'SSD Predator 2TB', precio: 150, imagen: 'img/nvme.jpg', categoria: 'Almacenamiento' },
   ];
 
   // 2. Variable que soluciona el error 'productosFiltrados'

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes Terminado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../STYLES/style.css">
+    <link rel="stylesheet" href="../STYLES/historial.css">
+    <link rel="stylesheet" href="../STYLES/variables.css">
+    <link rel="stylesheet" href="../STYLES/base.css">
+    <link rel="stylesheet" href="../STYLES/navbar.css">
+    <link rel="stylesheet" href="../STYLES/cards.css">
+    <link rel="stylesheet" href="../STYLES/forms.css">
+    <link rel="stylesheet" href="../STYLES/footer.css">
+    <link rel="stylesheet" href="../STYLES/stats.css">
+    <link rel="stylesheet" href="../STYLES/modal.css">
+</head>
+
+<body>
+
+    <nav class="navbar-pro">
+        <div class="nav-izq">
+            <img src="../IMG/logo.jpeg" class="nav-logo">
+            <span class="nav-titulo">Historial de reportes</span>
+        </div>
+        <div class="nav-der">
+            <button class="btn-cerrar-nav" onclick="cerrar()">Cerrar Sesión 🚪</button>
+        </div>
+    </nav>
+    <br><br><br>
+
+
+
+    <div class="card card-stats">
+
+        <div class="stat">
+            <h2>Reportes terminados</h2>
+            <p>Actualmente hay:</p>
+            <h1 id="contador" style="font-size: 4rem; color: #0732e0; margin: 10px 0;">0</h1>
+            <p>Reportes terminados.</p>
+        </div>
+
+        <div class="stat">
+            <h2>Críticos</h2>
+            <p>Actualmente hay:</p>
+            <h1 id="contadorCriticos" style="color: #f10f0f;">0</h1>
+            <p>Reportes críticos cerrados.</p>
+        </div>
+
+        <div class="stat">
+            <h2>Relevantes</h2>
+            <p>Actualmente hay:</p>
+            <h1 id="contadorRelevantes" style="color: #eeff00;">0</h1>
+            <p>Reportes Relevantes cerrados.</p>
+        </div>
+
+        <div class="stat">
+            <h2>Poco importantes</h2>
+            <p>Actualmente hay:</p>
+            <h1 id="contadorPocoImportantes" style="color: #26e60d;">0</h1>
+            <p>Reportes poco importantes cerrados.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 id="tituloLista">Lista de Reportes</h2>
+
+        <div class="filter-section">
+            <div class="filter-group">
+                <label>Buscar (Título/Zona)</label>
+                <input type="text" id="filtroTexto" placeholder="Ej: Baños..." oninput="aplicarFiltros()">
+            </div>
+            <div class="filter-group">
+                <label>Prioridad</label>
+                <select id="filtroPrioridad" onchange="aplicarFiltros()">
+                    <option value="Todas">Todas</option>
+                    <option value="Alta">Alta 🔴</option>
+                    <option value="Media">Media 🟡</option>
+                    <option value="Baja">Baja 🟢</option>
+                </select>
+            </div>
+            <div id="filtroEstadoContainer" class="filter-group" style="display:none;">
+                <label>Estado</label>
+                <select id="filtroEstado" onchange="aplicarFiltros()">
+                    <option value="Todos">Todos</option>
+                    <option value="Pendiente">Pendiente ⏳</option>
+                    <option value="En Reparación">En Reparación 🛠️</option>
+                    <option value="Terminado">Terminado ✅</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Ordenar por</label>
+                <select id="ordenarPor" onchange="aplicarFiltros()">
+                    <option value="reciente">Más reciente</option>
+                    <option value="antiguo">Más antiguo</option>
+                    <option value="prioridad">Prioridad (Alta primero)</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="listaTerminado">
+            <p style="text-align: center; color: #999;">Cargando...</p>
+        </div>
+    </div>
+
+    <!--Edición -->
+    <div id="modalEdicion" class="modal">
+        <div class="modal-content">
+            <h3>Editar Reporte ✏️</h3>
+            <input type="hidden" id="editId">
+            <div class="form-group">
+                <label>Título</label>
+                <p id="editTitulo"></p>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <p id="editDesc"></p>
+            </div>
+            <div class="form-group">
+                <label>Salón/Área</label>
+                <input type="text" id="editSalon" readonly>
+            </div>
+            <div class="form-group">
+                <label>Prioridad</label>
+                <select id="editPrioridad">
+                    <option value="Alta">Alta 🔴</option>
+                    <option value="Media">Media 🟡</option>
+                    <option value="Baja">Baja 🟢</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="editEstado">
+                    <option value="Pendiente">Pendiente ⏳</option>
+                    <option value="En Reparación">En Reparación 🛠️</option>
+                    <option value="Terminado">Terminado ✅</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cerrar-nav" style="background:#e22121;" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-cerrar-nav" style="background:#0732e0;" onclick="actualizarReporte()">Guardar
+                    Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../SCRIPTS/historial.js"></script>
+    <footer>
+        <div class="footer-content">
+            <div><span class="footer-logo"> &copy;EduTask</span> | VIC</div>
+            <div>
+                <a href="#home">Inicio</a> |
+                <a href="#products">Productos</a> |
+                <a href="https://web.metricamovil.com/">Sobre Nosotros</a> |
+                <a href="#contact">Contactanos</a>
+            </div>
+            <div>
+                <span>Siguenos en:</span>
+                <a href="https://www.instagram.com/josumtx?igsh=MWNnZnc2bmJ4aDN5Mw==" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/share/1BL1bwEq95/" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

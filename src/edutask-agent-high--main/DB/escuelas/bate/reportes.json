@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1772045060018,
+    "titulo": "vidrios",
+    "descripcion": "vidrios rotos en el piso",
+    "salon": "Salón 1",
+    "prioridad": "Baja",
+    "motivo_ia": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.model: unexpected model name format\\n', 'status': 'INVALID_ARGUMENT'}}",
+    "fecha": "25/2/2026, 12:44:20 p.m.",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 1772045751911,
+    "titulo": "vidrios",
+    "descripcion": "vidrios rotos en el piso",
+    "salon": "Salón 1",
+    "prioridad": "Baja",
+    "motivo_ia": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+    "fecha": "25/2/2026, 12:55:51 p.m.",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 1772046129466,
+    "titulo": "vidrios",
+    "descripcion": "vidrios rotos en la mesa",
+    "salon": "Salón 1",
+    "prioridad": "Alta",
+    "motivo_ia": "Riesgo inminente de corte por vidrios rotos en la mesa.",
+    "fecha": "25/2/2026, 1:02:09 p.m.",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 1772046221640,
+    "titulo": "no hay papel ",
+    "descripcion": "no hay papel en el baño ",
+    "salon": "Salón 1",
+    "prioridad": "Alta",
+    "motivo_ia": "La falta de papel higiénico en el baño es una necesidad básica y urgente que afecta la higiene y comodidad.",
+    "fecha": "25/2/2026, 1:03:41 p.m.",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 1772046315398,
+    "titulo": "mal acomodo",
+    "descripcion": "estan mal acomodadas las bancas en el laboratorio",
+    "salon": "Laboratorio",
+    "prioridad": "Alta",
+    "motivo_ia": "mal acomodo - estan mal acomodadas las bancas en el laboratorio",
+    "fecha": "25/2/2026, 1:05:15 p.m.",
+    "estado": "Pendiente"
+  }
+]

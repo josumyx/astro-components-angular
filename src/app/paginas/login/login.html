@@ -7,7 +7,7 @@
     <div class="star"></div>
   </div>
 
-  <div class="flip-container" [class.flipped]="!isLogin">
+  <div class="flip-container" [class.flipped]="!isLogin" *ngIf="!isLoggedIn">
     <div class="flipper">
       
       <div class="front auth-card">
@@ -65,11 +65,71 @@
           <h2 class="auth-title">Crear Cuenta</h2>
           <p class="auth-subtitle">Regístrate para obtener beneficios exclusivos</p>
           <form (ngSubmit)="onSubmit()">
+            <div class="input-box">
+              <label>Nombre de Piloto</label>
+              <div class="input-wrapper">
+                <span class="icon">👤</span>
+                <input type="text" placeholder="Tu nombre" name="nombre" [(ngModel)]="usuario.nombre">
+              </div>
+            </div>
+            <div class="input-box">
+              <label>Correo Electrónico</label>
+              <div class="input-wrapper">
+                <span class="icon">✉</span>
+                <input type="email" placeholder="tu@correo.com" name="email" [(ngModel)]="usuario.email">
+              </div>
+            </div>
             <button type="submit" class="btn-primary">Registrarme ➔</button>
           </form>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <div class="perfil-card" *ngIf="isLoggedIn">
+    <div class="perfil-header">
+      <h2>Mi Perfil Astro</h2>
+      <p>Gestiona tu cuenta de hardware</p>
+    </div>
+
+    <div class="avatar-section">
+  <img [src]="usuario.foto" alt="Avatar">
+  <div class="status-online"></div>
+  
+  <label for="foto-input" class="change-photo-btn">
+    📷
+  </label>
+  <input 
+    id="foto-input" 
+    type="file" 
+    (change)="onFileSelected($event)" 
+    accept="image/*" 
+    style="display: none;">
+
+    <button 
+    *ngIf="usuario.foto !== FOTO_DEFAULT" 
+    class="btn-eliminar-foto" 
+    (click)="eliminarFoto()">
+    🗑️
+  </button>
+  
+</div>
+
+    <div class="perfil-form">
+      <div class="input-group">
+        <label>Nombre de Piloto</label>
+        <input type="text" name="perfilNombre" [(ngModel)]="usuario.nombre">
+      </div>
+      <div class="input-group">
+        <label>Correo Electrónico</label>
+        <input type="email" name="perfilEmail" [(ngModel)]="usuario.email" disabled>
+      </div>
+      
+      <div class="perfil-buttons">
+        <button class="save-btn" (click)="actualizarPerfil()">Guardar Cambios</button>
+        <button class="logout-btn" (click)="cerrarSesion()">Cerrar Sesión</button>
+      </div>
     </div>
   </div>
 </div>

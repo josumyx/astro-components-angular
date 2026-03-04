@@ -1,0 +1,79 @@
+.card-stats {
+    text-align: center;
+    border-left: 10px solid #6d6d6d4a;
+    width: 80vw;
+    max-width: 1100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-stats .stat {
+    flex: 1 1 0;
+    min-width: 180px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.card-stats .stat h2 {
+    margin: 6px 0 4px 0;
+}
+
+.card-stats .stat p {
+    margin: 2px 0;
+    color: #666;
+}
+
+.card-stats .stat h1 {
+    font-size: 3.2rem;
+    margin: 6px 0 8px 0;
+    line-height: 1;
+}
+
+@media (max-width: 900px) {
+    .card-stats {
+        width: 95vw;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .card-stats .stat h1 {
+        font-size: 2.4rem;
+    }
+}
+
+/* Estilos filtros */
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}

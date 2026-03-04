@@ -482,3 +482,128 @@
   padding: 10px 30px; border-radius: 10px; cursor: pointer; margin-top: 20px;
   &:hover { background: white; color: #3a225d; }
 }
+
+.perfil-card {
+  background: #121212;
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  border-radius: 30px;
+  border: 2px solid var(--neon-purple);
+  box-shadow: 0 0 30px rgba(162, 89, 247, 0.2);
+  text-align: center;
+  animation: fadeInUp 0.5s ease;
+
+  .avatar-section {
+    position: relative;
+    width: 120px;
+    margin: 20px auto;
+    img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--neon-purple);
+      padding: 5px;
+    }
+    .status-online {
+      position: absolute; bottom: 10px; right: 10px;
+      width: 20px; height: 20px;
+      background: #00ff88; border-radius: 50%; border: 3px solid #121212;
+    }
+  }
+
+  .input-group {
+    text-align: left; margin-bottom: 20px;
+    label { color: var(--neon-purple); font-size: 0.8rem; font-weight: 700; margin-left: 10px; }
+    input {
+      width: 100%; background: #1a1a1a; border: 1px solid #333;
+      padding: 12px; border-radius: 10px; color: white; margin-top: 5px;
+      &:focus { border-color: var(--neon-purple); outline: none; }
+    }
+  }
+
+  .perfil-buttons {
+    display: flex; flex-direction: column; gap: 10px;
+    button {
+      padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer; border: none;
+    }
+    .save-btn { background: var(--neon-purple); color: white; }
+    .logout-btn { background: transparent; color: #ff4757; border: 1px solid #ff4757; }
+  }
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra el cuadro verticalmente */
+  padding-top: 100px; /* Evita que el header lo tape */
+  background: var(--bg-page);
+}
+
+.perfil-card {
+  /* ... tus estilos anteriores ... */
+  z-index: 100;
+  position: relative;
+  margin: 20px auto; /* Lo mantiene centrado siempre */
+}
+
+
+.avatar-section {
+  position: relative;
+  width: 120px;
+  margin: 0 auto 20px;
+
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--neon-purple);
+    object-fit: cover;
+  }
+
+  .change-photo-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--neon-purple);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(162, 89, 247, 0.5);
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      background: white;
+    }
+  }
+}
+
+.btn-eliminar-foto {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+    background: #ff0000;
+  }
+}

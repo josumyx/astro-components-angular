@@ -1,0 +1,14 @@
+[
+  {
+    "user": "admin_bate",
+    "pass": "1234",
+    "rol": "admin",
+    "escuela": "bate"
+  },
+  {
+    "user": "alumno_bate",
+    "pass": "1234",
+    "rol": "alumno",
+    "escuela": "bate"
+  }
+]

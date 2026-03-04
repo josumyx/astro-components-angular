@@ -4,30 +4,36 @@
       <img src="img/ac4.png" alt="Astro Logo">
       <span class="logo-text">ASTRO COMPONENTS</span>
     </div>
+<div class="actions-group">
+  
+  <a class="action-item" routerLink="/login" *ngIf="!isLoggedIn">
+    👤 <span class="user-text">Mi Cuenta</span>
+  </a>
 
-    <div class="actions-group">
-      <a class="action-item" routerLink="/login">
-        👤 <span class="user-text">Mi Cuenta</span>
-      </a>
+  <a class="action-item" routerLink="/login" *ngIf="isLoggedIn">
+    <span class="user-text" style="color: var(--neon-purple); font-weight: 800;">
+      🚀 {{ usuarioActivo?.nombre }}
+    </span>
+  </a>
 
-      <div class="menu-wrapper">
-        <button class="descubre-btn" (click)="toggleMenu()">
-          MENÚ {{ menuAbierto ? '▲' : '▼' }}
-        </button>
-        
-        <nav class="dropdown-nav" [class.show]="menuAbierto">
-          <a routerLink="/" (click)="menuAbierto = false">Inicio</a>
-          <a routerLink="/productos" (click)="menuAbierto = false">Productos</a>
-          <a routerLink="/nosotros" (click)="menuAbierto = false">Sobre Nosotros</a>
-          <a routerLink="/contacto" (click)="menuAbierto = false">Contacto</a>
-        </nav>
-      </div>
+  <button class="descubre-btn" (click)="toggleMenu()">
+    MENÚ {{ menuAbierto ? '▲' : '▼' }}
+  </button>
+
+      <nav class="dropdown-nav" [class.show]="menuAbierto">
+        <a routerLink="/" (click)="toggleMenu()">Inicio</a>
+        <a routerLink="/productos" (click)="toggleMenu()">Productos</a>
+        <a routerLink="/contacto" (click)="toggleMenu()">Contacto</a>
+        <a routerLink="/nosotros" (click)="toggleMenu()">nosotros</a>
+        <a *ngIf="isLoggedIn" (click)="cerrarSesion()" style="color: #ff4757;">Cerrar Sesión</a>
+      </nav>
     </div>
   </div>
 </header>
 
+
 <div class="astro-particles" *ngIf="isDarkMode">
-  <div class="particle" *ngFor="let p of [1,2,3,4,5,6,7,8,9,10]"></div>
+  <div class="particle" *ngFor="let p of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"></div>
 </div>
 
 <main class="page-content">
@@ -67,7 +73,7 @@
       <div class="footer-social">
         <a href="https://x.com/YANPOLGG" target="_blank">Twitter</a>
         <a href="https://facebook.com" target="_blank">Facebook</a>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://www.instagram.com/astro_components?igsh=ams5bDIwdHJ3NDE1" target="_blank">Instagram</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,77 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    align-content: space-around;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 2% auto;
+    /* Reducido para que quepa mejor */
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    /* Un poco más angosto */
+    max-height: 90vh;
+    /* Para que no se salga de la pantalla */
+    overflow-y: auto;
+    /* Scroll si el contenido es mucho */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #000000;
+    font-size: 0.9em;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-content p {
+    color: #333;
+    font-size: 0.9em;
+}
+
+.modal-content select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.modal-content .btn-cerrar-nav {
+    background-color: #0732e0;
+}

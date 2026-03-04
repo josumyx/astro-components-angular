@@ -1,8 +1,9 @@
 <section class="home-centered">
   <div class="highlight">
-    <h1 class="bien">Bienvenido a ⫻<span class="brand-name">⫻ Astro Components</span></h1>
-    <p class="subtitle">Tu PC Web Potente</p>
-    <p class="quote">"Consulta todo lo que tenemos para ti"</p>
+<h1 class="bien">
+    Bienvenido a ⫻<span>⫻Astro Components</span></h1>
+  <p class="subtitle">Tu PC Web Potente</p>
+  <p class="quote">"Consulta todo lo que tenemos para ti"</p>
   </div>
 
   <div class="hero-search-container">
@@ -14,7 +15,7 @@
 </section>
 
 <main class="page-content">
-  <h2 class="section-title" style="text-align: center; margin-top: 50px; color: #3a225d;">
+  <h2 class="section-title" style="text-align: center; margin-top: 50px; color: #b38bee; font-size: 50px;">
     Novedades de la Semana
   </h2>
 
@@ -24,11 +25,13 @@
         <div class="card-img-container">
           <img [src]="prod.imagen" [alt]="prod.nombre">
         </div>
-        <div class="card-info">
-          <h3>{{ prod.nombre }}</h3>
-          <p>{{ prod.categoria }}</p> <span class="price">${{ prod.precio }}</span>
-          <button class="buy-btn" (click)="agregarAlCarrito()">Consultar</button>
-        </div>
+       <div class="card-info">
+      <h3>{{ prod.nombre }}</h3>
+      <span class="price">${{ prod.precio }}</span>
+      <button class="buy-btn" (click)="agregarAlCarrito()">
+        🛒 Añadir al carrito
+      </button>
+      </div>
       </div>
     </div>
   </section>
